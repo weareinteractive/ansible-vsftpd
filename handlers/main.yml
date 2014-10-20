@@ -1,0 +1,6 @@
+---
+# For more information about handlers see:
+# http://www.ansibleworks.com/docs/playbooks.html#handlers-running-operations-on-change
+#
+- name: restart vsftpd
+  service: name=vsftpd state=restarted
