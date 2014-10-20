@@ -34,10 +34,21 @@ $ git clone https://github.com/weareinteractive/ansible-vsftpd.git
 Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
 
 ```
+# vsftpd_users:
+#   - username: ftpuser
+#     name: FTP User
+#     # openssl passwd -salt 'somesalt' -1 'secret'
+#     password: '$1$somesalt$jezmI5TSY7mVTzHLgsK5L.'
 # vsftpd_config:
 #   local_umask: 022
 #
 
+# users to create with nologin
+vsftpd_users: []
+# start on boot
+vsftpd_service_enabled: yes
+# current state: started, stopped
+vsftpd_service_state: started
 # config variables
 vsftpd_config: {}
 # config template to install, relative to the ansible repository root

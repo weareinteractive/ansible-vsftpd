@@ -10,3 +10,4 @@
     vsftpd_users:
        - username: ftpuser
          name: FTP User
+         password: '$1$somesalt$jezmI5TSY7mVTzHLgsK5L.'
