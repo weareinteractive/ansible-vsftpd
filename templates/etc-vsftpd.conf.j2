@@ -23,7 +23,7 @@ listen=YES
 anonymous_enable=NO
 #
 # Uncomment this to allow local users to log in.
-local_enable=YES
+#local_enable=YES
 #
 # Uncomment this to enable any form of FTP write command.
 #write_enable=YES
@@ -137,17 +137,17 @@ connect_from_port_20=YES
 # directory should not be writable by the ftp user. This directory is used
 # as a secure chroot() jail at times vsftpd does not require filesystem
 # access.
-secure_chroot_dir=/var/run/vsftpd/empty
+# secure_chroot_dir=/var/run/vsftpd/empty
 #
 # This string is the name of the PAM service vsftpd will use.
 pam_service_name=vsftpd
 #
 # This option specifies the location of the RSA certificate to use for SSL
 # encrypted connections.
-rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+rsa_cert_file={{ openssl_certs_path }}/{{ vsftpd_cert_file }}
 # This option specifies the location of the RSA key to use for SSL
 # encrypted connections.
-rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+rsa_private_key_file={{ openssl_keys_path }}/{{ vsftpd_key_file }}
 
 {% for key, value in vsftpd_config.iteritems() %}
 {{ key }}={{ value }}

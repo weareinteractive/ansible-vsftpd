@@ -49,6 +49,9 @@ vsftpd_users: []
 vsftpd_service_enabled: yes
 # current state: started, stopped
 vsftpd_service_state: started
+# default ssl
+vsftpd_key_file: ssl-cert-snakeoil.key
+vsftpd_cert_file: ssl-cert-snakeoil.pem
 # config variables
 vsftpd_config: {}
 # config template to install, relative to the ansible repository root
