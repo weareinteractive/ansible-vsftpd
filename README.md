@@ -53,11 +53,16 @@ These are the handlers that are defined in `handlers/main.yml`.
 ## Example playbook
 
 ```
-- host: all
+- hosts: all
   sudo: yes
-  roles: 
+  roles:
     - franklinkim.vsftpd
   vars:
+    vsftpd_service_enabled: yes
+    vsftpd_service_state: started
+    vsftpd_users:
+       - username: ftpuser
+         name: FTP User
 ```
 
 ## Testing
