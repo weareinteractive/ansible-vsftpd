@@ -7,6 +7,7 @@ before_install:
  - sudo apt-get install -qq python-apt python-pycurl
 install:
   - pip install ansible
+  - ansible-galaxy install franklinkim.openssl
 script:
   - echo localhost > inventory
   - ln -s ansible-vsftpd ../franklinkim.vsftpd
