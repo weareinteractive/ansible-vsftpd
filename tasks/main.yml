@@ -21,15 +21,12 @@
 - include: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
 
-- name: Configuring service
-  service: >
-    name=vsftpd
-    state={{ vsftpd_service_state }}
-    enabled={{ vsftpd_service_enabled }}
+- include: service.yml
   tags:
     - networking
     - vsftpd
     - service
+    - vsftpd-service
 
 - name: Adding users
   user: >
