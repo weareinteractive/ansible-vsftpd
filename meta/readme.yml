@@ -1,0 +1,14 @@
+---
+
+galaxy_name: franklinkim.vsftpd
+github_user: weareinteractive
+github_name: ansible-vsftpd
+badges: |
+  [![Build Status](https://img.shields.io/travis/weareinteractive/ansible-vsftpd.svg)](https://travis-ci.org/weareinteractive/ansible-vsftpd)
+  [![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.sudo-blue.svg)](https://galaxy.ansible.com/list#/roles/1974)
+  [![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-vsftpd.svg)](https://github.com/weareinteractive/ansible-vsftpd)
+  [![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-vsftpd.svg)](https://github.com/weareinteractive/ansible-vsftpd)
+description: |
+  > * installs vsftpd
+  > * configures vsftpd
+  > * manages user
