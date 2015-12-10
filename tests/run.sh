@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # define variables
-ROLE_NAME=franklinkim.sftpd
+ROLE_NAME=franklinkim.vsftpd
 
 # install dependencies
 ansible-galaxy install franklinkim.openssl
