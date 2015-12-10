@@ -5,7 +5,3 @@
     name=vsftpd
     state={{ vsftpd_service_state }}
     enabled={{ vsftpd_service_enabled }}
-  tags:
-    - networking
-    - vsftpd
-    - service

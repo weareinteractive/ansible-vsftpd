@@ -8,10 +8,6 @@
     group=root
     mode=0644
   notify: restart vsftpd
-  tags:
-    - networking
-    - vsftpd
-    - config
 
 - name: Adding nologin shell
   lineinfile: >
@@ -20,7 +16,8 @@
     line="/usr/sbin/nologin"
     regexp="^/usr/sbin/nologin"
     insertafter=EOF
-  tags:
-    - networking
-    - vsftpd
-    - config
+
+- name: set SELinux booleans
+  seboolean: name={{ item.key }} state={{ item.value }} persistent=yes
+  when: ansible_os_family == 'RedHat'
+  with_dict: "{{ vsftpd_seboolean }}"
