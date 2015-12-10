@@ -1,5 +1,12 @@
 ---
 
+- include: install.yml
+  tags:
+    - networking
+    - vsftpd
+    - install
+    - vsftpd-install
+
 # Setup/install tasks.
 - include: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'

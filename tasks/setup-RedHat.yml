@@ -1,7 +1,4 @@
 ---
 
-- include: install-RedHat.yml
 - include: config-RedHat.yml
 - include: selinux.yml
-
-
