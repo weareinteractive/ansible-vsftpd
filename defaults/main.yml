@@ -11,20 +11,24 @@
 #    ftp_home_dir: yes
 #    ftpd_full_access: no
 #
-#
 
+# define package (version)
+vsftpd_package: vsftpd
 # users to create with nologin
 vsftpd_users: []
+# user group to create with nologin
 vsftpd_group: ftp
 # start on boot
 vsftpd_service_enabled: yes
 # current state: started, stopped
 vsftpd_service_state: started
-# default ssl
+# default ssl key
 vsftpd_key_file: ssl-cert-snakeoil.key
+# default ssl cert
 vsftpd_cert_file: ssl-cert-snakeoil.pem
 # config variables
 vsftpd_config: {}
 # config template to install, relative to the ansible repository root
 vsftpd_config_template:
+# optional SELinux booleans to be set i.e. for RedHat
 vsftpd_seboolean: {}

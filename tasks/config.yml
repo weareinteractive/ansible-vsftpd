@@ -1,23 +1,24 @@
 ---
 
-- name: Configuring
-  template: >
-    src={{ vsftpd_config_template if vsftpd_config_template else 'etc-vsftpd.conf.j2' }}
-    dest={{ vsftpd_config_template_path }}
-    owner=root
-    group=root
-    mode=0644
+- name: Configuring vsftp
+  template:
+    src: "{{ vsftpd_config_template if vsftpd_config_template else 'etc/vsftpd.conf.j2' }}"
+    dest: "{{ vsftpd_config_template_path }}"
+    owner: root
+    group: root
+    mode: "0644"
   notify: restart vsftpd
 
 - name: Adding nologin shell
-  lineinfile: >
-    state=present
-    dest=/etc/shells
-    line="/usr/sbin/nologin"
-    regexp="^/usr/sbin/nologin"
-    insertafter=EOF
+  lineinfile:
+    state: present
+    dest: /etc/shells
+    line: "/usr/sbin/nologin"
+    regexp: "^/usr/sbin/nologin"
+    insertafter: EOF
 
-- name: set SELinux booleans
-  seboolean: name={{ item.key }} state={{ item.value }} persistent=yes
-  when: ansible_os_family == 'RedHat'
+- name: Setting SELinux booleans
+  seboolean:
+    name: "{{ item.key }}"
+    state: "{{ item.value }}"
   with_dict: "{{ vsftpd_seboolean }}"
