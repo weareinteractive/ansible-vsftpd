@@ -2,10 +2,6 @@
 
 - include: install-RedHat.yml
 - include: config-RedHat.yml
-- include: service.yml
-- include: users.yml
 - include: selinux.yml
-
-
 
 

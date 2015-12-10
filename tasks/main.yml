@@ -1,12 +1,34 @@
 ---
 
-
 # Setup/install tasks.
 - include: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
 
 - include: setup-Ubuntu.yml
-  when: ansible_os_family == 'Ubuntu'
+  when: ansible_os_family == 'Debian'
+
+
+- name: Configuring service
+  service: >
+    name=vsftpd
+    state={{ vsftpd_service_state }}
+    enabled={{ vsftpd_service_enabled }}
+  tags:
+    - networking
+    - vsftpd
+    - service
+
+- name: Adding users
+  user: >
+    name={{ item.username }}
+    comment={{ item.username|default(item.username) }}
+    password={{ item.password }}
+    shell=/usr/sbin/nologin
+  with_items: vsftpd_users
+  tags:
+    - networking
+    - vsftpd
+    - users
 
 - name: Ensure vsftpd is started and enabled to start at boot.
   service: name=vsftpd state=started enabled=yes
