@@ -1,0 +1,6 @@
+---
+
+- include: install-Ubuntu.yml
+- include: config-Ubuntu.yml
+- include: service.yml
+- include: users.yml

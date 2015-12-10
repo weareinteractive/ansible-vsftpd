@@ -1,0 +1,11 @@
+---
+
+- include: install-RedHat.yml
+- include: config-Redhat.yml
+- include: service.yml
+- include: users.yml
+- include: selinux.yml
+
+
+
+
