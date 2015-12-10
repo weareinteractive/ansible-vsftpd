@@ -28,17 +28,12 @@
     - service
     - vsftpd-service
 
-- name: Adding users
-  user: >
-    name={{ item.username }}
-    comment={{ item.username|default(item.username) }}
-    password={{ item.password }}
-    shell=/usr/sbin/nologin
-  with_items: vsftpd_users
+- include: manage.yml
   tags:
     - networking
     - vsftpd
-    - users
+    - manage
+    - vsftpd-manage
 
 - name: Ensure vsftpd is started and enabled to start at boot.
   service: name=vsftpd state=started enabled=yes
