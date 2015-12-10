@@ -1,5 +1,8 @@
 ---
 
+- name: Includeing OS specific variables
+  include_vars: '{{ ansible_os_family }}.yml'
+
 - include: install.yml
   tags:
     - networking
@@ -7,13 +10,16 @@
     - install
     - vsftpd-install
 
+- include: config.yml
+  tags:
+    - networking
+    - vsftpd
+    - config
+    - vsftpd-config
+
 # Setup/install tasks.
 - include: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
-
-- include: setup-Ubuntu.yml
-  when: ansible_os_family == 'Debian'
-
 
 - name: Configuring service
   service: >

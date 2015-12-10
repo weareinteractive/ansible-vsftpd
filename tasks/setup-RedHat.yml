@@ -1,4 +1,3 @@
 ---
 
-- include: config-RedHat.yml
 - include: selinux.yml

@@ -3,7 +3,7 @@
 - name: Configuring
   template: >
     src={{ vsftpd_config_template if vsftpd_config_template else 'etc-vsftpd.conf.j2' }}
-    dest=/etc/vsftpd.conf
+    dest={{ vsftpd_config_template_path }}
     owner=root
     group=root
     mode=0644
