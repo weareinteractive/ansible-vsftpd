@@ -21,13 +21,6 @@
 - include: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
 
-- include: service.yml
-  tags:
-    - networking
-    - vsftpd
-    - service
-    - vsftpd-service
-
 - include: manage.yml
   tags:
     - networking
@@ -35,5 +28,9 @@
     - manage
     - vsftpd-manage
 
-- name: Ensure vsftpd is started and enabled to start at boot.
-  service: name=vsftpd state=started enabled=yes
+- include: service.yml
+  tags:
+    - networking
+    - vsftpd
+    - service
+    - vsftpd-service
