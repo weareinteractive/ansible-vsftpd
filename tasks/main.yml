@@ -1,6 +1,12 @@
 ---
 
-- include: install.yml
-- include: config.yml
-- include: service.yml
-- include: users.yml
+
+# Setup/install tasks.
+- include: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include: setup-Ubuntu.yml
+  when: ansible_os_family == 'Ubuntu'
+
+- name: Ensure vsftpd is started and enabled to start at boot.
+  service: name=vsftpd state=started enabled=yes
