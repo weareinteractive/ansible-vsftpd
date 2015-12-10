@@ -1,10 +1,15 @@
 ---
 
-language: ruby
-sudo: required
-services:
-  - docker
+language: python
+python: "2.7"
+before_install:
+ - sudo apt-get update -qq
+ - sudo apt-get install -qq python-apt python-pycurl
 install:
-  - docker pull franklinkim/ansible:ubuntu-trusty
+  - pip install ansible
+  - ansible-galaxy install franklinkim.openssl
 script:
-  - docker run -v $(pwd):/opt/ansible franklinkim/ansible:ubuntu-trusty tests/run.sh
+  - echo localhost > inventory
+  - ln -s ansible-vsftpd ../franklinkim.vsftpd
+  - ansible-playbook --syntax-check -i inventory test.yml
+  - ansible-playbook -i inventory test.yml --connection=local --sudo -vvvv
