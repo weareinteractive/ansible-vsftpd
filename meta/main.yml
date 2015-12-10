@@ -2,8 +2,8 @@
 galaxy_info:
   author: franklin
   company: We Are Interactive
-  description: Installs and configures vsftpd
-  min_ansible_version: 1.7
+  description: Installs, configures and adds user for vsftpd
+  min_ansible_version: 1.9
   license: MIT
   #
   # Below are all platforms currently available. Just uncomment
@@ -11,11 +11,12 @@ galaxy_info:
   # platform on this list, let us know and we'll get it added!
   #
   platforms:
-  #  - name: EL
-  #    versions:
+    - name: EL
+      versions:
   #      - all
   #      - 5
   #      - 6
+         - 7
   #  - name: GenericUNIX
   #    versions:
   #      - all
@@ -77,31 +78,24 @@ galaxy_info:
   #    versions:
   #      - all
   #      - any
-  #  - name: Debian
-  #    versions:
-  #      - all
+    - name: Debian
+      versions:
+        - all
   #      - etch
   #      - lenny
   #      - squeeze
   #      - wheezy
   #
-  # Below are all categories currently available. Just as with
-  # the platforms above, uncomment those that apply to your role.
+  # The number of tags imported by Galaxy is limited to 20,
+  # and tag values containing non-alphanumeric characters will be ignored.
+  # Tag values containing a : will be split into multiple tags.
+  # The tag cloud:ec2, for example, will become two tags: cloud and ec2.
   #
-  categories:
-  #  - cloud
-  #  - cloud:ec2
-  #  - cloud:gce
-  #  - cloud:rax
-  #  - database
-  #  - database:nosql
-  #  - database:sql
-  #  - development
-  #  - monitoring
+  galaxy_tags:
     - networking
-  #  - packaging
-  #  - system
-  #  - web
+    - ftp
+    - sftp
+    - vsftpd
 dependencies:
   # List your role dependencies here, one per line. Only
   # dependencies available via galaxy should be listed here.

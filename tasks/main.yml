@@ -1,6 +1,32 @@
 ---
 
+- name: Includeing OS specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
 - include: install.yml
+  tags:
+    - networking
+    - vsftpd
+    - install
+    - vsftpd-install
+
 - include: config.yml
+  tags:
+    - networking
+    - vsftpd
+    - config
+    - vsftpd-config
+
+- include: manage.yml
+  tags:
+    - networking
+    - vsftpd
+    - manage
+    - vsftpd-manage
+
 - include: service.yml
-- include: users.yml
+  tags:
+    - networking
+    - vsftpd
+    - service
+    - vsftpd-service

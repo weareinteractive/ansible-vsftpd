@@ -1,12 +1,4 @@
 ---
 
 - name: Installing packages
-  apt: >
-    pkg={{ item }}
-    state=present
-  with_items:
-    - vsftpd
-  tags:
-    - networking
-    - vsftpd
-    - install
+  action: "{{ ansible_pkg_mgr }} pkg={{ vsftpd_package }} state=present"
