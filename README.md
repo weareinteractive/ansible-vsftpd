@@ -33,7 +33,7 @@ $ git clone https://github.com/weareinteractive/ansible-vsftpd.git franklinkim.v
 
 ## Dependencies
 
-* Ansible >= 1.9
+* Ansible >= 2.0
 * franklinkim.openssl
 
 ## Variables
@@ -102,28 +102,34 @@ This is an example playbook:
 ---
 
 - hosts: all
-  sudo: yes
   roles:
     - franklinkim.vsftpd
   vars:
-    vsftpd_service_enabled: yes
+    vsftpd_service_enabled: YES
     vsftpd_service_state: started
     vsftpd_users:
        - username: ftpuser
          name: FTP User
          password: '$1$somesalt$jezmI5TSY7mVTzHLgsK5L.'
+    vsftpd_config:
+      log_ftp_protocol: YES
+      local_enable: YES
+      write_enable: YES
+      xferlog_enable: YES
+      listen_port: 990
 ```
+
 
 ## Testing
 
 ```shell
 $ git clone https://github.com/weareinteractive/ansible-vsftpd.git
 $ cd ansible-vsftpd
-$ vagrant up
+$ make test
 ```
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests and examples for any new or changed functionality.
+In lieu of a formal style guide, take care to maintain the existing coding style. Add unit tests and examples for any new or changed functionality.
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
