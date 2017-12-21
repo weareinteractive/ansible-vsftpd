@@ -1,3 +1,14 @@
+<a name="1.4.0"></a>
+## 1.4.0 (2017-12-21)
+
+
+#### Features
+
+*   add password hint ([e036e317](https://github.com/weareinteractive/ansible-vsftpd/commit/e036e31706caee0ccf102101f9c40f61074d26d2))
+*   replace include with import_tasks for 2.4 ([56077027](https://github.com/weareinteractive/ansible-vsftpd/commit/56077027ee642ea9eae8c641c7c992bfa2617aa5))
+
+
+
 <a name="1.3.0"></a>
 ## 1.3.0 (2016-08-17)
 
