@@ -33,7 +33,7 @@ $ git clone https://github.com/weareinteractive/ansible-vsftpd.git franklinkim.v
 
 ## Dependencies
 
-* Ansible >= 2.0
+* Ansible >= 2.4
 * franklinkim.openssl
 
 ## Variables
@@ -105,18 +105,18 @@ This is an example playbook:
   roles:
     - franklinkim.vsftpd
   vars:
-    vsftpd_service_enabled: YES
-    vsftpd_service_state: started
     vsftpd_users:
        - username: ftpuser
          name: FTP User
-         password: '$1$somesalt$jezmI5TSY7mVTzHLgsK5L.'
+         # python -c 'import crypt; print crypt.crypt("ftpuser", "$1$SomeSalt$")'
+         password: '$1$SomeSalt$Mabm7JORLYoZUVe5er5Ss.'
     vsftpd_config:
       log_ftp_protocol: YES
       local_enable: YES
       write_enable: YES
       xferlog_enable: YES
       listen_port: 990
+
 ```
 
 
