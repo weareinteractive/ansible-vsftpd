@@ -10,8 +10,9 @@
          # python -c 'import crypt; print crypt.crypt("ftpuser", "$1$SomeSalt$")'
          password: '$1$SomeSalt$Mabm7JORLYoZUVe5er5Ss.'
     vsftpd_config:
-      log_ftp_protocol: YES
+      listen_port: 990
       local_enable: YES
       write_enable: YES
+      chroot_local_user: YES
       xferlog_enable: YES
-      listen_port: 990
+      log_ftp_protocol: YES
