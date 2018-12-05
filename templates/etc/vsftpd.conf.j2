@@ -151,5 +151,5 @@ rsa_cert_file={{ openssl_certs_path }}/{{ vsftpd_cert_file }}
 rsa_private_key_file={{ openssl_keys_path }}/{{ vsftpd_key_file }}
 
 {% for key, value in vsftpd_config.iteritems() %}
-{{ key }}={{ {true: "YES", false: "NO"}[value] | default(value) }}
+{{ key }}={{ {true: "YES", false: "NO"}[vsftpd_config[key]] | default(vsftpd_config[key]) }}
 {% endfor %}
