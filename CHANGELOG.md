@@ -1,3 +1,14 @@
+<a name="1.5.0"></a>
+## 1.5.0 (2018-12-12)
+
+
+#### Features
+
+*   temporarly ignore service config errors ([30ce9ccd](https://github.com/weareinteractive/ansible-vsftpd/commit/30ce9ccd2d6b2301ec435a9902018e1dccac3304))
+*   update galaxy role name ([e524de96](https://github.com/weareinteractive/ansible-vsftpd/commit/e524de96fe4602c9a6e7b6561944affddb98c335))
+
+
+
 <a name="1.4.0"></a>
 ## 1.4.0 (2017-12-21)
 
