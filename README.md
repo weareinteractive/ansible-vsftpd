@@ -1,40 +1,44 @@
-# Ansible franklinkim.vsftpd role
+# Ansible weareinteractive.vsftpd role
 
 [![Build Status](https://img.shields.io/travis/weareinteractive/ansible-vsftpd.svg)](https://travis-ci.org/weareinteractive/ansible-vsftpd)
-[![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.sudo-blue.svg)](https://galaxy.ansible.com/list#/roles/1974)
+[![Galaxy](http://img.shields.io/badge/galaxy-weareinteractive.vsftpd-blue.svg)](https://galaxy.ansible.com/weareinteractive/vsftpd)
 [![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-vsftpd.svg)](https://github.com/weareinteractive/ansible-vsftpd)
 [![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-vsftpd.svg)](https://github.com/weareinteractive/ansible-vsftpd)
 
-> `franklinkim.vsftpd` is an [Ansible](http://www.ansible.com) role which:
+> `weareinteractive.vsftpd` is an [Ansible](http://www.ansible.com) role which:
 >
 > * installs vsftpd
 > * configures vsftpd
 > * manages user
+
+**Note:**
+
+> Since Ansible Galaxy supports [organization](https://www.ansible.com/blog/ansible-galaxy-2-release) now, this role has moved from `franklinkim.vsftpd` to `weareinteractive.vsftpd`!
 
 ## Installation
 
 Using `ansible-galaxy`:
 
 ```shell
-$ ansible-galaxy install franklinkim.vsftpd
+$ ansible-galaxy install weareinteractive.vsftpd
 ```
 
 Using `requirements.yml`:
 
 ```yaml
-- src: franklinkim.vsftpd
+- src: weareinteractive.vsftpd
 ```
 
 Using `git`:
 
 ```shell
-$ git clone https://github.com/weareinteractive/ansible-vsftpd.git franklinkim.vsftpd
+$ git clone https://github.com/weareinteractive/ansible-vsftpd.git weareinteractive.vsftpd
 ```
 
 ## Dependencies
 
 * Ansible >= 2.4
-* franklinkim.openssl
+* weareinteractive.openssl
 
 ## Variables
 
@@ -46,8 +50,7 @@ Here is a list of all the default variables for this role, which are also availa
 # vsftpd_users:
 #   - username: ftpuser
 #     name: FTP User
-#     # openssl passwd -salt 'somesalt' -1 'secret'
-#     password: '$1$somesalt$jezmI5TSY7mVTzHLgsK5L.'
+#     password: "{{ 'ftpuser' | password_hash('sha256', 'mysecretsalt') }}"
 # vsftpd_config:
 #   local_umask: 022
 # vsftpd_seboolean:
@@ -90,6 +93,8 @@ These are the handlers that are defined in `handlers/main.yml`.
     name: vsftpd
     state: restarted
   when: vsftpd_service_state != 'stopped'
+  # Ignore errors due to: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=754762;msg=9
+  ignore_errors: yes
 
 ```
 
@@ -103,19 +108,20 @@ This is an example playbook:
 
 - hosts: all
   roles:
-    - franklinkim.vsftpd
+    - weareinteractive.vsftpd
   vars:
     vsftpd_users:
        - username: ftpuser
          name: FTP User
-         # python -c 'import crypt; print crypt.crypt("ftpuser", "$1$SomeSalt$")'
-         password: '$1$SomeSalt$Mabm7JORLYoZUVe5er5Ss.'
+         password: "{{ 'ftpuser' | password_hash('sha256', 'mysecretsalt') }}"
     vsftpd_config:
-      log_ftp_protocol: YES
+      listen_port: 990
       local_enable: YES
       write_enable: YES
+      chroot_local_user: YES
       xferlog_enable: YES
-      listen_port: 990
+      log_ftp_protocol: YES
+      allow_writeable_chroot: YES
 
 ```
 
