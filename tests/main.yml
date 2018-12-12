@@ -2,13 +2,12 @@
 
 - hosts: all
   roles:
-    - franklinkim.vsftpd
+    - weareinteractive.vsftpd
   vars:
     vsftpd_users:
        - username: ftpuser
          name: FTP User
-         # python -c 'import crypt; print crypt.crypt("ftpuser", "$1$SomeSalt$")'
-         password: '$1$SomeSalt$Mabm7JORLYoZUVe5er5Ss.'
+         password: "{{ 'ftpuser' | password_hash('sha256', 'mysecretsalt') }}"
     vsftpd_config:
       listen_port: 990
       local_enable: YES
@@ -16,3 +15,4 @@
       chroot_local_user: YES
       xferlog_enable: YES
       log_ftp_protocol: YES
+      allow_writeable_chroot: YES
