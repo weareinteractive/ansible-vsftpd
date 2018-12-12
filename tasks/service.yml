@@ -5,3 +5,5 @@
     name: vsftpd
     state: "{{ vsftpd_service_state }}"
     enabled: "{{ vsftpd_service_enabled }}"
+  # Ignore errors due to: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=754762;msg=9
+  ignore_errors: yes
