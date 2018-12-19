@@ -1,3 +1,4 @@
 ---
 
 vsftpd_config_template_path: /etc/vsftpd/vsftpd.conf
+ansible_pkg_mgr: yum
