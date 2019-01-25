@@ -1,3 +1,13 @@
+<a name="1.5.2"></a>
+### 1.5.2 (2019-01-25)
+
+
+#### Bug Fixes
+
+*   fix iteriterms ([d081bab8](https://github.com/weareinteractive/ansible-vsftpd/commit/d081bab803d4bd69b81c6227794173c5683ba9f7))
+
+
+
 <a name="1.5.0"></a>
 ## 1.5.0 (2018-12-12)
 
