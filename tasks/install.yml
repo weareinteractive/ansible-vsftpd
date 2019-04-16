@@ -1,4 +1,6 @@
 ---
 
 - name: Installing packages
-  action: "{{ ansible_pkg_mgr }} pkg={{ vsftpd_package }} state=present"
+  package:
+    name: "{{ vsftpd_package }}"
+    state: present

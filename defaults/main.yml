@@ -3,8 +3,7 @@
 # vsftpd_users:
 #   - username: ftpuser
 #     name: FTP User
-#     # openssl passwd -salt 'somesalt' -1 'secret'
-#     password: '$1$somesalt$jezmI5TSY7mVTzHLgsK5L.'
+#     password: "{{ 'ftpuser' | password_hash('sha256', 'mysecretsalt') }}"
 # vsftpd_config:
 #   local_umask: 022
 # vsftpd_seboolean:

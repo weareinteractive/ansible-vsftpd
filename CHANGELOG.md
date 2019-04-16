@@ -1,3 +1,46 @@
+<a name="1.5.2"></a>
+### 1.5.2 (2019-01-25)
+
+
+#### Bug Fixes
+
+*   fix iteriterms ([d081bab8](https://github.com/weareinteractive/ansible-vsftpd/commit/d081bab803d4bd69b81c6227794173c5683ba9f7))
+
+
+
+<a name="1.5.0"></a>
+## 1.5.0 (2018-12-12)
+
+
+#### Features
+
+*   temporarly ignore service config errors ([30ce9ccd](https://github.com/weareinteractive/ansible-vsftpd/commit/30ce9ccd2d6b2301ec435a9902018e1dccac3304))
+*   update galaxy role name ([e524de96](https://github.com/weareinteractive/ansible-vsftpd/commit/e524de96fe4602c9a6e7b6561944affddb98c335))
+
+
+
+<a name="1.4.0"></a>
+## 1.4.0 (2017-12-21)
+
+
+#### Features
+
+*   add password hint ([e036e317](https://github.com/weareinteractive/ansible-vsftpd/commit/e036e31706caee0ccf102101f9c40f61074d26d2))
+*   replace include with import_tasks for 2.4 ([56077027](https://github.com/weareinteractive/ansible-vsftpd/commit/56077027ee642ea9eae8c641c7c992bfa2617aa5))
+
+
+
+<a name="1.3.0"></a>
+## 1.3.0 (2016-08-17)
+
+
+#### Features
+
+*   don't convert YES/NO values ([72c3866b](https://github.com/weareinteractive/ansible-vsftpd/commit/72c3866b3d427173969a0751ec4354a741951edd))
+*   add editorconfig ([7c2fb8e5](https://github.com/weareinteractive/ansible-vsftpd/commit/7c2fb8e5bc9e7af077803bf297f96cb37464ea0e))
+
+
+
 <a name="1.2.0"></a>
 ## 1.2.0 (2015-12-10)
 

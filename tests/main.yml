@@ -1,13 +1,18 @@
 ---
 
 - hosts: all
-  sudo: yes
   roles:
-    - franklinkim.vsftpd
+    - weareinteractive.vsftpd
   vars:
-    vsftpd_service_enabled: yes
-    vsftpd_service_state: started
     vsftpd_users:
        - username: ftpuser
          name: FTP User
-         password: '$1$somesalt$jezmI5TSY7mVTzHLgsK5L.'
+         password: "{{ 'ftpuser' | password_hash('sha256', 'mysecretsalt') }}"
+    vsftpd_config:
+      listen_port: 990
+      local_enable: YES
+      write_enable: YES
+      chroot_local_user: YES
+      xferlog_enable: YES
+      log_ftp_protocol: YES
+      allow_writeable_chroot: YES
