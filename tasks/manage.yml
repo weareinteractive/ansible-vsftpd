@@ -6,4 +6,5 @@
     comment: "{{ item.username | default(item.username) }}"
     password: "{{ item.password }}"
     shell: /usr/sbin/nologin
+    home: "{{ item.home | default('/home/' + item.username) }}"
   with_items: "{{ vsftpd_users }}"
