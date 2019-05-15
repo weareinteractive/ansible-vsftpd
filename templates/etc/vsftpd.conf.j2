@@ -150,6 +150,6 @@ rsa_cert_file={{ openssl_certs_path }}/{{ vsftpd_cert_file }}
 # encrypted connections.
 rsa_private_key_file={{ openssl_keys_path }}/{{ vsftpd_key_file }}
 
-{% for key, value in vsftpd_config.items()|sort(attribut='1') %}
+{% for key, value in vsftpd_config.items()|sort(attribute='1') %}
 {{ key }}={{ {true: "YES", false: "NO"}[value] | default(value) }}
 {% endfor %}
