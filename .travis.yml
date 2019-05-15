@@ -8,6 +8,10 @@ env:
     - role: weareinteractive.vsftpd
   matrix:
     - distribution: Ubuntu
+      distribution_version: "18.04"
+      init: /lib/systemd/systemd
+      run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    - distribution: Ubuntu
       distribution_version: "16.04"
       init: /lib/systemd/systemd
       run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
@@ -26,17 +30,17 @@ script:
   - docker exec -t "$(cat ${container_id})" env TERM=xterm ansible --version
 
   # Install dependencies
-  - docker exec -t "$(cat ${container_id})" env TERM=xterm bash -c 'apt-get update && ansible-galaxy install weareinteractive.openssl'
+  - docker exec -t "$(cat ${container_id})" env TERM=xterm bash -c 'ansible-galaxy install -c weareinteractive.openssl'
 
   # Ansible syntax check.
   - 'docker exec -t "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/${role}/tests/main.yml --syntax-check'
 
   # Test role.
-  - 'docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook /etc/ansible/roles/${role}/tests/main.yml'
+  - 'docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/${role}/tests/main.yml'
 
   # Test Idempotence
   - idempotence=$(mktemp)
-  - docker exec "$(cat ${container_id})" ansible-playbook /etc/ansible/roles/${role}/tests/main.yml | tee -a ${idempotence}
+  - docker exec "$(cat ${container_id})" ansible-playbook -v /etc/ansible/roles/${role}/tests/main.yml | tee -a ${idempotence}
   - >
     tail ${idempotence}
     | grep -q 'failed=0'
