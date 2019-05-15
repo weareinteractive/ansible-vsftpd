@@ -50,6 +50,7 @@ Here is a list of all the default variables for this role, which are also availa
 # vsftpd_users:
 #   - username: ftpuser
 #     name: FTP User
+#     home: /path/to/home
 #     password: "{{ 'ftpuser' | password_hash('sha256', 'mysecretsalt') }}"
 # vsftpd_config:
 #   local_umask: 022
