@@ -1,3 +1,15 @@
+<a name="1.6.0"></a>
+## 1.6.0 (2019-05-15)
+
+
+#### Features
+
+*   allow user home config ([3c7ed84d](https://github.com/weareinteractive/ansible-vsftpd/commit/3c7ed84d13ff20adede328f62c6a1c16a0aa3228))
+*   sort template items ([045e2417](https://github.com/weareinteractive/ansible-vsftpd/commit/045e2417a59cccaad8de863d3212ac0a88eeca7f))
+*   remove ansible note for idempotence ([61c5788f](https://github.com/weareinteractive/ansible-vsftpd/commit/61c5788f00bca08afa73f5112307fe49b5989b5c))
+
+
+
 <a name="1.5.2"></a>
 ### 1.5.2 (2019-01-25)
 
