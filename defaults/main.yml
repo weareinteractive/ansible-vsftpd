@@ -22,6 +22,8 @@ vsftpd_group: ftp
 vsftpd_service_enabled: yes
 # current state: started, stopped
 vsftpd_service_state: started
+# enable ssl by default
+vsftpd_enable_ssl: true
 # default ssl key
 vsftpd_key_file: ssl-cert-snakeoil.key
 # default ssl cert
