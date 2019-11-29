@@ -3,6 +3,8 @@
 # vsftpd_users:
 #   - username: ftpuser
 #     name: FTP User
+#     comment: FTP User for file transfer
+#     uid: 13370
 #     home: /path/to/home
 #     password: "{{ 'ftpuser' | password_hash('sha256', 'mysecretsalt') }}"
 # vsftpd_config:

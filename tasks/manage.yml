@@ -3,8 +3,8 @@
 - name: Managing users
   user:
     name: "{{ item.username }}"
-    comment: "{{ item.username | default(item.username) }}"
-    password: "{{ item.password }}"
+    comment: "{{ item.comment | default(item.username) }}"
+    uid: "{{ item.uid | default(omit) }}"
     home: "{{ item.home | default(omit) }}"
     shell: /usr/sbin/nologin
   with_items: "{{ vsftpd_users }}"
