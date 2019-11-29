@@ -4,6 +4,7 @@
   user:
     name: "{{ item.username }}"
     comment: "{{ item.comment | default(item.username) }}"
+    password: "{{ item.password }}"
     uid: "{{ item.uid | default(omit) }}"
     home: "{{ item.home | default(omit) }}"
     shell: /usr/sbin/nologin
