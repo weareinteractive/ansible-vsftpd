@@ -3,6 +3,8 @@
 # vsftpd_users:
 #   - username: ftpuser
 #     name: FTP User
+#     state: present (default) or absent
+#     remove: yes or no (default)
 #     comment: FTP User for file transfer
 #     uid: 13370
 #     home: /path/to/home
