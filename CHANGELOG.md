@@ -1,3 +1,13 @@
+<a name="1.7.0"></a>
+## 1.7.0 (2019-12-08)
+
+
+#### Features
+
+*   make openssl optional Merge branch 'hurricanehrndz-master' ([993490ab](https://github.com/weareinteractive/ansible-vsftpd/commit/993490ab2aea096e308028b6376a1919b15c594c))
+
+
+
 <a name="1.6.1"></a>
 ### 1.6.1 (2019-05-15)
 
