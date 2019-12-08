@@ -146,6 +146,6 @@ dependencies:
     when:
       - vsftpd_enable_ssl|default(true)
     tags:
-      - ssl-dependency
+      - openssl-dependency
       - dependencies
       - openssl
