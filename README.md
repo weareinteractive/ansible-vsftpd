@@ -38,7 +38,7 @@ $ git clone https://github.com/weareinteractive/ansible-vsftpd.git weareinteract
 ## Dependencies
 
 * Ansible >= 2.4
-* weareinteractive.openssl
+* {"role"=>"weareinteractive.openssl", "when"=>["vsftpd_enable_ssl|default(true)"], "tags"=>["openssl-dependency", "dependencies", "openssl"]}
 
 ## Variables
 
@@ -50,6 +50,10 @@ Here is a list of all the default variables for this role, which are also availa
 # vsftpd_users:
 #   - username: ftpuser
 #     name: FTP User
+#     state: present (default) or absent
+#     remove: yes or no (default)
+#     comment: FTP User for file transfer
+#     uid: 13370
 #     home: /path/to/home
 #     password: "{{ 'ftpuser' | password_hash('sha256', 'mysecretsalt') }}"
 # vsftpd_config:
