@@ -3,7 +3,10 @@
 - name: Managing users
   user:
     name: "{{ item.username }}"
-    comment: "{{ item.username | default(item.username) }}"
+    state: "{{ item.state | default(omit) }}"
+    remove: "{{ item.remove | default(omit) }}"
+    comment: "{{ item.comment | default(item.username) }}"
+    uid: "{{ item.uid | default(omit) }}"
     password: "{{ item.password }}"
     home: "{{ item.home | default(omit) }}"
     shell: /usr/sbin/nologin
