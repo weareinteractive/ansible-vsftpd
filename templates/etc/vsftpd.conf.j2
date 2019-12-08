@@ -143,12 +143,14 @@ connect_from_port_20=YES
 # This string is the name of the PAM service vsftpd will use.
 pam_service_name=vsftpd
 #
+{% if vsftpd_enable_ssl %}
 # This option specifies the location of the RSA certificate to use for SSL
 # encrypted connections.
 rsa_cert_file={{ openssl_certs_path }}/{{ vsftpd_cert_file }}
 # This option specifies the location of the RSA key to use for SSL
 # encrypted connections.
 rsa_private_key_file={{ openssl_keys_path }}/{{ vsftpd_key_file }}
+{% endif %}
 
 {% for key, value in vsftpd_config.items() %}
 {{ key }}={{ {true: "YES", false: "NO"}[value] | default(value) }}
