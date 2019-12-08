@@ -1,3 +1,13 @@
+<a name="1.8.0"></a>
+## 1.8.0 (2019-12-08)
+
+
+#### Features
+
+*   fix user comment and add more fields ([b99f2588](https://github.com/weareinteractive/ansible-vsftpd/commit/b99f25885b9f9dd672fc462c3a040bb30aa5d818))
+
+
+
 <a name="1.7.0"></a>
 ## 1.7.0 (2019-12-08)
 
