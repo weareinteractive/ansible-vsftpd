@@ -1,3 +1,13 @@
+<a name="1.8.1"></a>
+### 1.8.1 (2020-06-21)
+
+
+#### Bug Fixes
+
+*   remove ununsed vsftpd_group var ([e0026d5e](https://github.com/weareinteractive/ansible-vsftpd/commit/e0026d5e0cc2109a902b437b6413cf7227978f11))
+
+
+
 <a name="1.8.0"></a>
 ## 1.8.0 (2019-12-08)
 
