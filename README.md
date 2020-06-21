@@ -67,8 +67,6 @@ Here is a list of all the default variables for this role, which are also availa
 vsftpd_package: vsftpd
 # users to create with nologin
 vsftpd_users: []
-# user group to create with nologin
-vsftpd_group: ftp
 # start on boot
 vsftpd_service_enabled: yes
 # current state: started, stopped
